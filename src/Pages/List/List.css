@@ -1,0 +1,100 @@
+.listContainer{
+display: flex;
+justify-content: center;
+margin-top: 20px;
+}
+.listWrapper{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    gap: 20px;
+    
+}
+.listSearch{
+    flex: 1;
+    background-color: #febb02;
+    position: sticky;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding: 10px;
+   height:max-content;
+}
+
+.listResult{
+    flex: 3;
+}
+.listTitle{
+    font-size: 20px;
+    margin: 10px;
+}
+.listItem{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    margin-bottom: 10px;
+    position: relative;
+
+
+}
+.listItem>label{
+    font-size: 12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.listItem>input{
+    height: 30px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.listItem>span{
+    height: 30px;
+    padding: 5px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.data{
+    z-index: 3;
+    position: absolute;
+    bottom: -40%;
+}
+.listOptionItem{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.isOptionInput{
+    width: 50px;
+}
+.listOptions{
+    padding: 10px;
+}
+.listSearch>button{
+    color: white;
+    background-color: #0071c2;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
