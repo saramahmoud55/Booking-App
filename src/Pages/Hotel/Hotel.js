@@ -5,7 +5,7 @@ import Header from "../../Components/Header/Header"
 import MailList from "../../Components/Mail.list/MailList"
 import Footer from "../../Components/Footer/Footer"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faCircleArrowLeft, faCircleArrowRight, faCircleXmark, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 export default function Hotel() {
   const [sliderNumber,setSliderNumber]=useState(0)
   const [open,setOpen]=useState(false)
@@ -29,9 +29,19 @@ export default function Hotel() {
       src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",
     },
   ];
-  const handleOpen =(i)=>{
-    setSliderNumber(i);
+  const handleOpen =(index)=>{
+    setSliderNumber(index);
     setOpen(true)
+  }
+  const handleMove =(direction)=>{
+    let newSlideNumber
+    if(direction==="l"){
+      newSlideNumber=sliderNumber===0?5:sliderNumber-1
+    }else{
+      newSlideNumber=sliderNumber===5?0:sliderNumber+1
+
+    }
+    setSliderNumber(newSlideNumber)
   }
   
   return (
@@ -41,8 +51,14 @@ export default function Hotel() {
       <div className='hotelContainer'>
         <div className='hotelWrapper'>
           {open &&<div className='slider'>
-              lkmlvml
-          </div>}
+              <FontAwesomeIcon icon={faCircleXmark} className="close" onClick={()=>setOpen(false)}/>
+              <FontAwesomeIcon icon={faCircleArrowLeft} className="arrow" onClick={()=>handleMove("l")}/>
+              <div className='sliderWrapper'>
+                <img src={photos[sliderNumber].src} alt='' className='sliderImg'/>
+              </div>
+              <FontAwesomeIcon icon={faCircleArrowRight} className="arrow" onClick={()=>handleMove("r")}/>
+          </div>
+          }
           <button className='bookNow'>Reserve or Boor Now</button>
             <h1 className='hotelTitle'>Grand Hotel</h1>
             <div className='hotelAddress'>
@@ -54,7 +70,7 @@ export default function Hotel() {
             <div className='hotelImages'>
               {photos.map((photo,index) =>(
                 <div className='hotelImagWrapper'> 
-                  <img onClick={handleOpen} className='hotelImg' src={photo.src}/>
+                  <img onClick={()=>handleOpen(index)} className='hotelImg' src={photo.src}/>
                 </div>
               ))}
             </div>
