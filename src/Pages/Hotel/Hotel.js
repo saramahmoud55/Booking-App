@@ -41,7 +41,7 @@ export default function Hotel() {
       newSlideNumber=sliderNumber===5?0:sliderNumber+1
 
     }
-    setSliderNumber(newSlideNumber)
+    setSliderNumber(newSlideNumber);
   }
   
   return (
